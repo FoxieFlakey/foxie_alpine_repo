@@ -3,7 +3,7 @@
 pkgname=uwumaker
 # Keep in sync with repo on https://github.com/FoxieFlakey/UwUMaker
 pkgver=1.2.0
-pkgrel=0
+pkgrel=1
 pkgdesc="A buildsystem which uses kconfig from da Foxie Flakey :3"
 url="https://github.com/FoxieFlakey/UwUMaker"
 arch="noarch"
@@ -33,7 +33,7 @@ package() {
 	
 	cp -r "$srcdir/UwUMaker-$pkgver" "$pkgdir/usr/share/UwUMaker"
 	echo "#!/usr/bin/env sh" > "$pkgdir/usr/bin/uwumaker"
-	echo "exec make -C \"/usr/share/UwUMaker\" \"PROJECT_DIR=$(pwd)\" \"\$@\"" >> "$pkgdir/usr/bin/uwumaker"
+	echo "exec make -C \"/usr/share/UwUMaker\" \"PROJECT_DIR=\$(pwd)\" \"\$@\"" >> "$pkgdir/usr/bin/uwumaker"
 	chmod 755 "$pkgdir/usr/bin/uwumaker"
 }
 

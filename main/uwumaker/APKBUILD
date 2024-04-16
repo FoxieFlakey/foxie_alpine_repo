@@ -1,0 +1,42 @@
+# Contributor: Foxie Flakey <foxieflakey@gmail.com>
+# Maintainer: Foxie Flakey <foxieflakey@gmail.com>
+pkgname=uwumaker
+# Keep in sync with repo on https://github.com/FoxieFlakey/UwUMaker
+pkgver=1.2.0
+pkgrel=0
+pkgdesc="A buildsystem which uses kconfig from da Foxie Flakey :3"
+url="https://github.com/FoxieFlakey/UwUMaker"
+arch="noarch"
+# Keep in sync with repo on https://github.com/FoxieFlakey/UwUMaker
+license="GPL-2.0-only"
+depends="make linux-kconfig-frontends lua5.4"
+makedepends=""
+checkdepends=""
+install=""
+subpackages=""
+source="uwumaker.zip::https://github.com/FoxieFlakey/UwUMaker/archive/refs/tags/v$pkgver.zip"
+builddir="$srcdir/"
+
+build() {
+	# No build is needed
+	:
+}
+
+check() {
+	# Replace with proper check command(s)
+	:
+}
+
+package() {
+	mkdir -p "$pkgdir/usr/share/"
+	mkdir -p "$pkgdir/usr/bin/"
+	
+	cp -r "$srcdir/UwUMaker-$pkgver" "$pkgdir/usr/share/UwUMaker"
+	echo "#!/usr/bin/env sh" > "$pkgdir/usr/bin/uwumaker"
+	echo "exec make -C \"/usr/share/UwUMaker\" \"PROJECT_DIR=$(pwd)\" \"\$@\"" >> "$pkgdir/usr/bin/uwumaker"
+	chmod 755 "$pkgdir/usr/bin/uwumaker"
+}
+
+sha512sums="
+71030d2d6e6c8602d7117dc789266f624ecd8f347204d12cb9acc43ff4ad3df2de40fc198f875f5c92d2801db1e912e22e37e10e3e52cc0f65a416ef643b8f71  uwumaker.zip
+"

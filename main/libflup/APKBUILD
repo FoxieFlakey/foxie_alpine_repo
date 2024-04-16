@@ -1,0 +1,47 @@
+# Contributor: Foxie Flakey <foxieflakey@gmail.com>
+# Maintainer: Foxie Flakey <foxieflakey@gmail.com>
+pkgname=libflup
+# Keep in sync with repo on https://github.com/FoxieFlakey/Flup
+pkgver=1.2.0
+pkgrel=0
+pkgdesc="A C library containing more stuffs"
+url="https://github.com/FoxieFlakey/Flup"
+arch="x86_64"
+# Keep in sync with repo on https://github.com/FoxieFlakey/Flup
+license="GPL-3.0-only"
+depends=""
+makedepends="libdispatch-dev linux-kconfig-frontends uwumaker clang llvm mimalloc-dev"
+checkdepends=""
+install=""
+subpackages=""
+source="flup.zip::https://github.com/FoxieFlakey/Flup/archive/refs/tags/v$pkgver.zip"
+builddir="$srcdir/"
+
+build() {
+	cd "$srcdir/Flup-$pkgver"
+	
+	# Initializing default config
+	touch .config
+	uwumaker cmd_alldefconfig
+	
+	# Add CONFIG_PREFIX
+	echo "CONFIG_PREFIX=\"/usr/\"" >> .config
+	uwumaker cmd_oldconfig
+	
+	# Do build
+	uwumaker -j$(nproc) CC=clang LD=clang cmd_all
+}
+
+check() {
+	# Replace with proper check command(s)
+	:
+}
+
+package() {
+  cd "$srcdir/Flup-$pkgver"
+  uwumaker PROJ_OUTDIR="$pkgdir" proj_install
+}
+
+sha512sums="
+c7304050f76b35377eed79296db0ed52f483e305fa9f3ff47e30748b625ec2d331c4ac1433c88d2d5d982369c9580d4ba3dfa7dcbf87f5c56f42929191b431c7  flup.zip
+"

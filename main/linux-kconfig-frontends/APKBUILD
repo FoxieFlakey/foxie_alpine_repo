@@ -1,0 +1,45 @@
+# Contributor: Foxie Flakey <foxieflakey@gmail.com>
+# Maintainer: Foxie Flakey <foxieflakey@gmail.com>
+pkgname=linux-kconfig-frontends
+# Keep in sync with .version file on
+# https://github.com/movidius/kconfig-frontends/
+pkgver=3.12.0
+pkgrel=0
+pkgdesc="Linux's kconfig tools *not* to be confused with KDE Configuration tool"
+url="https://github.com/movidius/kconfig-frontends/"
+arch="x86_64"
+# Keep in sync with COPYING file's license on
+# https://github.com/movidius/kconfig-frontends/
+license="GPL-2.0-only"
+depends=""
+makedepends="automake autoconf libtool flex bison ncurses-dev"
+checkdepends=""
+install=""
+subpackages=""
+foxie_commit_id=44b2a3287ebd5be5b49e51feaafb9c54c9f0fe41
+source="https://github.com/movidius/kconfig-frontends/archive/$foxie_commit_id.zip"
+builddir="$srcdir/"
+
+build() {
+  cd "$srcdir/kconfig-frontends-$foxie_commit_id"
+  ./bootstrap
+  CFLAGS="-Wno-error=format-security -Wno-error=format-truncation" \
+  ./configure --disable-werror --enable-conf --enable-mconf \
+    --enable-wall --enable-werror --disable-dependency-tracking \
+    --enable-nconf --enable-utils --prefix=/usr
+  make -j$(nproc)
+}
+
+check() {
+	# Replace with proper check command(s)
+	:
+}
+
+package() {
+  cd "$srcdir/kconfig-frontends-$foxie_commit_id"
+  make DESTDIR="$pkgdir" install
+}
+
+sha512sums="
+480069ea1534b5b9bec7b5dd6a57891a804361ee14508087216da5dcd6ab9261df99dc1b3e8b3c17412e2a153bb9661858d1630c70dcd7c09c9887bd98a19d67  44b2a3287ebd5be5b49e51feaafb9c54c9f0fe41.zip
+"

@@ -14,7 +14,7 @@ makedepends=""
 checkdepends=""
 install=""
 subpackages=""
-source="uwumaker.zip::https://github.com/FoxieFlakey/UwUMaker/archive/refs/tags/v$pkgver.zip"
+source="uwumaker-version-$pkgver.zip::https://github.com/FoxieFlakey/UwUMaker/archive/refs/tags/v$pkgver.zip"
 builddir="$srcdir/"
 
 build() {
@@ -38,5 +38,5 @@ package() {
 }
 
 sha512sums="
-71030d2d6e6c8602d7117dc789266f624ecd8f347204d12cb9acc43ff4ad3df2de40fc198f875f5c92d2801db1e912e22e37e10e3e52cc0f65a416ef643b8f71  uwumaker.zip
+71030d2d6e6c8602d7117dc789266f624ecd8f347204d12cb9acc43ff4ad3df2de40fc198f875f5c92d2801db1e912e22e37e10e3e52cc0f65a416ef643b8f71  uwumaker-version-1.2.0.zip
 "

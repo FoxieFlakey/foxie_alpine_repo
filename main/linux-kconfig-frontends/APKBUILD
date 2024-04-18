@@ -17,7 +17,7 @@ checkdepends=""
 install=""
 subpackages=""
 foxie_commit_id=44b2a3287ebd5be5b49e51feaafb9c54c9f0fe41
-source="https://github.com/movidius/kconfig-frontends/archive/$foxie_commit_id.zip"
+source="kconfig-frontends-commit-$foxie_commit_id.zip::https://github.com/movidius/kconfig-frontends/archive/$foxie_commit_id.zip"
 builddir="$srcdir/"
 
 build() {
@@ -41,5 +41,5 @@ package() {
 }
 
 sha512sums="
-480069ea1534b5b9bec7b5dd6a57891a804361ee14508087216da5dcd6ab9261df99dc1b3e8b3c17412e2a153bb9661858d1630c70dcd7c09c9887bd98a19d67  44b2a3287ebd5be5b49e51feaafb9c54c9f0fe41.zip
+480069ea1534b5b9bec7b5dd6a57891a804361ee14508087216da5dcd6ab9261df99dc1b3e8b3c17412e2a153bb9661858d1630c70dcd7c09c9887bd98a19d67  kconfig-frontends-commit-44b2a3287ebd5be5b49e51feaafb9c54c9f0fe41.zip
 "

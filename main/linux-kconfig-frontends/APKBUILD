@@ -4,7 +4,7 @@ pkgname=linux-kconfig-frontends
 # Keep in sync with .version file on
 # https://github.com/movidius/kconfig-frontends/
 pkgver=3.12.0
-pkgrel=0
+pkgrel=1
 pkgdesc="Linux's kconfig tools *not* to be confused with KDE Configuration tool"
 url="https://github.com/movidius/kconfig-frontends/"
 arch="x86_64"

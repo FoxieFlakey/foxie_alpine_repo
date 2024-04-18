@@ -3,7 +3,7 @@
 pkgname=uwumaker
 # Keep in sync with repo on https://github.com/FoxieFlakey/UwUMaker
 pkgver=1.2.0
-pkgrel=1
+pkgrel=2
 pkgdesc="A buildsystem which uses kconfig from da Foxie Flakey :3"
 url="https://github.com/FoxieFlakey/UwUMaker"
 arch="noarch"

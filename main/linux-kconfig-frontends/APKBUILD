@@ -15,7 +15,7 @@ depends=""
 makedepends="automake autoconf libtool flex bison ncurses-dev"
 checkdepends=""
 install=""
-subpackages=""
+subpackages="linux-kconfig-frontends-doc liblinux-kconfig:liblinux_kconfig liblinux-kconfig-dev"
 foxie_commit_id=44b2a3287ebd5be5b49e51feaafb9c54c9f0fe41
 source="kconfig-frontends-commit-$foxie_commit_id.zip::https://github.com/movidius/kconfig-frontends/archive/$foxie_commit_id.zip"
 builddir="$srcdir/"
@@ -35,7 +35,17 @@ build() {
 
 package() {
   cd "$srcdir/kconfig-frontends-$foxie_commit_id"
-  make DESTDIR="$pkgdir" install
+  make DESTDIR="$pkgdir/" install
+}
+
+dev() {
+  mkdir -p "$subpkgdir/usr"
+  mv "$pkgdir/usr/include" "$subpkgdir/usr/include"
+}
+
+liblinux_kconfig() {
+  mkdir -p "$subpkgdir/usr"
+  mv "$pkgdir/usr/lib" "$subpkgdir/usr/lib"
 }
 
 sha512sums="

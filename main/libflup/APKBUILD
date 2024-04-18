@@ -2,7 +2,7 @@
 # Maintainer: Foxie Flakey <foxieflakey@gmail.com>
 pkgname=libflup
 # Keep in sync with repo on https://github.com/FoxieFlakey/Flup
-pkgver=1.2.0
+pkgver=1.3.0
 pkgrel=0
 pkgdesc="A C library containing more stuffs"
 url="https://github.com/FoxieFlakey/Flup"
@@ -13,7 +13,7 @@ depends=""
 makedepends="libdispatch-dev linux-kconfig-frontends uwumaker clang llvm mimalloc-dev"
 checkdepends=""
 install=""
-subpackages=""
+subpackages="libflup-dev"
 source="flup.zip::https://github.com/FoxieFlakey/Flup/archive/refs/tags/v$pkgver.zip"
 builddir="$srcdir/"
 
@@ -39,9 +39,14 @@ check() {
 
 package() {
   cd "$srcdir/Flup-$pkgver"
-  uwumaker PROJ_OUTDIR="$pkgdir" proj_install
+  uwumaker PROJ_OUTDIR="$pkgdir" proj_install_bin
+}
+
+dev() {
+  cd "$srcdir/Flup-$pkgver"
+  uwumaker PROJ_OUTDIR="$subpkgdir" proj_install_dev
 }
 
 sha512sums="
-c7304050f76b35377eed79296db0ed52f483e305fa9f3ff47e30748b625ec2d331c4ac1433c88d2d5d982369c9580d4ba3dfa7dcbf87f5c56f42929191b431c7  flup.zip
+5fe21c566d4d7c78eec38091327567dc3c86dfebdcdfda806c768a746c7a1673e88106101e4b39c5987567ec7a96da1bbc4d64a2cc6f2aed8c97e9c64239e05f  flup.zip
 "

@@ -20,6 +20,9 @@ foxie_commit_id=44b2a3287ebd5be5b49e51feaafb9c54c9f0fe41
 source="kconfig-frontends-commit-$foxie_commit_id.zip::https://github.com/movidius/kconfig-frontends/archive/$foxie_commit_id.zip"
 builddir="$srcdir/"
 
+# Test isn't exist at this point
+options="!check"
+
 build() {
   cd "$srcdir/kconfig-frontends-$foxie_commit_id"
   ./bootstrap
@@ -28,11 +31,6 @@ build() {
     --enable-wall --enable-werror --disable-dependency-tracking \
     --enable-nconf --enable-utils --prefix=/usr
   make -j$(nproc)
-}
-
-check() {
-	# Replace with proper check command(s)
-	:
 }
 
 package() {

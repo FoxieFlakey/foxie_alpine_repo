@@ -17,6 +17,9 @@ subpackages=""
 source="uwumaker-version-$pkgver.zip::https://github.com/FoxieFlakey/UwUMaker/archive/refs/tags/v$pkgver.zip"
 builddir="$srcdir/"
 
+# Test isn't exist at this point
+options="!check"
+
 build() {
 	# No build is needed
 	:

@@ -2,7 +2,7 @@
 # Maintainer: Foxie Flakey <foxieflakey@gmail.com>
 pkgname=libflup
 # Keep in sync with repo on https://github.com/FoxieFlakey/Flup
-pkgver=1.6.0
+pkgver=1.7.1
 pkgrel=0
 pkgdesc="A C library containing more stuffs"
 url="https://github.com/FoxieFlakey/Flup"
@@ -11,7 +11,7 @@ arch="x86_64"
 license="GPL-3.0-only"
 depends=""
 depends_dev="libflup"
-makedepends="libdispatch-dev linux-kconfig-frontends uwumaker clang llvm llvm-libunwind-dev lld"
+makedepends="libdispatch-dev linux-kconfig-frontends uwumaker clang18 llvm18 llvm-libunwind-dev lld xxhash-dev"
 checkdepends=""
 install=""
 subpackages="libflup-dev"
@@ -34,11 +34,12 @@ build() {
 	
 	# Use lld instead
 	echo "#!/bin/sh" > $builddir/clang_linker_wrapper.sh
-	echo "exec clang -fuse-ld=lld \"\$@\"" >> $builddir/clang_linker_wrapper.sh
+	echo "exec clang-18 -fuse-ld=lld \"\$@\"" >> $builddir/clang_linker_wrapper.sh
 	chmod +x -- "$builddir/clang_linker_wrapper.sh"
 	
 	# Do build
-	uwumaker -j$(nproc) CC=clang LD="$builddir/clang_linker_wrapper.sh" cmd_all
+  uwumaker -j$(nproc) AR=llvm18-ar \
+		CC=clang-18 LD="$builddir/clang_linker_wrapper.sh" cmd_all
 }
 
 package() {
@@ -52,5 +53,5 @@ dev() {
 }
 
 sha512sums="
-71ade42ec98ff8b61b85cb862de8d065a7bb9c5bd41cb7bae989391ba17b774e9a431034aefaee1af71baf4add02a26b983453712a1de9f334f62fd56badbd5a  flup-1.6.0.zip
+c14edd34f438910cee0190f9bf679db46f8b9710e437f774307e9b4cd55dd37fff73e1c9dc6c4b7e7e70dab5d2b739cff65c6a874a2a4fee024b398fee20c9d8  flup-1.7.1.zip
 "

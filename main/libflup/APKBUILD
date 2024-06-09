@@ -2,7 +2,7 @@
 # Maintainer: Foxie Flakey <foxieflakey@gmail.com>
 pkgname=libflup
 # Keep in sync with repo on https://github.com/FoxieFlakey/Flup
-pkgver=1.7.1
+pkgver=1.7.2
 pkgrel=0
 pkgdesc="A C library containing more stuffs"
 url="https://github.com/FoxieFlakey/Flup"
@@ -53,5 +53,5 @@ dev() {
 }
 
 sha512sums="
-c14edd34f438910cee0190f9bf679db46f8b9710e437f774307e9b4cd55dd37fff73e1c9dc6c4b7e7e70dab5d2b739cff65c6a874a2a4fee024b398fee20c9d8  flup-1.7.1.zip
+f0b1f55929ccc6e84e33fa5cb38161b70212bacd4c3544232210fb2e48e392eec39bf4940583df7b17a62cbb71b25499858ee0c5f08f1f3c066622068f4c5dc2  flup-1.7.2.zip
 "

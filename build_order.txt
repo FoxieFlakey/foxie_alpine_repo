@@ -1,0 +1,11 @@
+# Comments like this and empty line are ignored
+# this used to order which package built first because of dependency
+
+# Layer 1
+./main/linux-kconfig-frontends
+
+# Layer 2
+./main/uwumaker
+
+# Layer 3
+./main/libflup

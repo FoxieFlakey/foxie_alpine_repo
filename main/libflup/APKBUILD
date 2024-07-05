@@ -3,7 +3,7 @@
 pkgname=libflup
 # Keep in sync with repo on https://github.com/FoxieFlakey/Flup
 pkgver=1.8.1
-pkgrel=0
+pkgrel=1
 pkgdesc="A C library containing more stuffs"
 url="https://github.com/FoxieFlakey/Flup"
 arch="x86_64"
@@ -11,7 +11,7 @@ arch="x86_64"
 license="GPL-3.0-only"
 depends=""
 depends_dev="libflup"
-makedepends="libdispatch-dev linux-kconfig-frontends uwumaker clang18 llvm18 llvm-libunwind-dev lld xxhash-dev"
+makedepends="libdispatch-dev linux-kconfig-frontends uwumaker clang18 llvm18 llvm-libunwind-dev lld xxhash-dev dash"
 checkdepends=""
 install=""
 subpackages="libflup-dev"

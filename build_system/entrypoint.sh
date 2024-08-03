@@ -65,7 +65,7 @@ function lua_format {
   format="$1"
   # Remove $1
   shift
-  echo "print(string.format('$format', table.unpack(arg)))" | lua5.4 - "$@"
+  echo "print(string.format([==[$format]==], table.unpack(arg)))" | lua5.4 - "$@"
 }
 
 abuild_conf="/home/runner/.abuild/abuild.conf"

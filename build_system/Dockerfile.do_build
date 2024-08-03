@@ -1,0 +1,37 @@
+FROM alpine:3.20
+
+# This container only contains things needed to build packages
+# managing the /source_repo and /output_repo content is delegated
+# to the invoker of `docker run` to prepare those volumes
+
+# Install basic build packages
+RUN apk add abuild clang18 llvm18 build-base
+
+# Add lua5.4 (for quoting in entrypoint.sh)
+# and few utilities for entrypoint.sh
+RUN apk add lua5.4 jq sudo
+
+# Setup sudoers file
+RUN echo "ALL ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+# Create unprivileged user and add them to abuild
+RUN adduser -D runner && adduser runner abuild
+
+# Use volumes for source_repo and output_repo
+# so source_repo can be updated and output_repo
+# contain previous build and only needed to build
+# changed things
+#
+# /source_repo contains the source of repository
+# /output_repo will contains result of repository compilation
+# /var/cache/distfiles/ caches the source codes from abuild
+RUN mkdir /source_repo /output_repo /config
+RUN chown runner:runner -R /source_repo /output_repo
+VOLUME ["/source_repo", "/output_repo", "/var/cache/distfiles/"]
+
+USER runner
+COPY ./entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["sh", "/entrypoint.sh"]
+
+
+

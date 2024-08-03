@@ -1,0 +1,17 @@
+{
+  "packager": "Foxie Flakey <foxieflakey@gmail.com>",
+  "maintainer": "Foxie Flakey <foxieflakey@gmail.com>",
+  "_comment1": [
+    "Those key under here is valid but DO NOT use this in real project,",
+    "its intentionally weakened to 512 bits so it can fits here"
+  ],
+  
+  "public_signing_key": {
+    "name": "foxieflakey@gmail.com-66ae0314.rsa.pub",
+    "key": "-----BEGIN PUBLIC KEY-----\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAMhKEpAB5a6CAREnBjAzSgRt9BaiFxd/\n8le7vpQ0e8ffjlEl0fSjIL3vWlziLAya6ohyODAyPi/pNMwchOQdlZ8CAwEAAQ==\n-----END PUBLIC KEY-----\n"
+  },
+  "private_signing_key": {
+    "name": "foxieflakey@gmail.com-66ae0314.rsa",
+    "key": "-----BEGIN PRIVATE KEY-----\nMIIBVgIBADANBgkqhkiG9w0BAQEFAASCAUAwggE8AgEAAkEAyEoSkAHlroIBEScG\nMDNKBG30FqIXF3/yV7u+lDR7x9+OUSXR9KMgve9aXOIsDJrqiHI4MDI+L+k0zByE\n5B2VnwIDAQABAkEArJnQx1MrOKiF/N8RYSZB6fFLQNnsZm73TA3Z3WQhK4sASCqU\nNjCjBq9Bwh9tQRlOphO9T9CdzOaie6zYsNDGAQIhAOuXtKyqgRgpIySdok3AEbmu\n9aC/+55Atc+r5T9+5cafAiEA2aODSMcvXjtfeq4yOQ18g3/NmIYRAQw0TMKypMfw\n0QECIQCobzreI7zOEEMu34B1g/doQL0d44Q6fVs/EU+CWPBgUwIhAK7QISa3H3wg\nUqv2+c5L3+S8JkdKAKSHygaSKO4kz3EBAiBlHAZUqWW99rImZxYHPs8pIrzEO4FX\nAXPltgtKiRN8AQ==\n-----END PRIVATE KEY-----\n"
+  }
+}

@@ -12,7 +12,7 @@ else
   exit 1
 fi
 
-if [ $# -lt 1 ] && [ $# -gt 2 ]; then
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
   1>&2 echo "Usage: $0 <dest directory> [container id for reuse]"
   exit 1
 fi

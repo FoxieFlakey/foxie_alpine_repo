@@ -61,6 +61,9 @@ docker cp -- "$config_path" "$container_id:/config/config.json"
 (
   cd "$(git rev-parse --show-toplevel)"
   git ls-tree --name-only HEAD | while read -r relative_path; do
+    if [ -d "$relative_path" ]; then
+      relative_path="$relative_path/."
+    fi
     docker cp -- "$relative_path" "$container_id:/source_repo/$relative_path"
   done
 )

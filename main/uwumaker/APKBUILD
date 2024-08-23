@@ -2,7 +2,7 @@
 # Maintainer: Foxie Flakey <foxieflakey@gmail.com>
 pkgname=uwumaker
 # Keep in sync with repo on https://github.com/FoxieFlakey/UwUMaker
-pkgver=1.4.3
+pkgver=1.4.4
 pkgrel=0
 pkgdesc="A buildsystem which uses kconfig from da Foxie Flakey :3"
 url="https://github.com/FoxieFlakey/UwUMaker"
@@ -41,5 +41,5 @@ package() {
 }
 
 sha512sums="
-b4c81f146f546433b7956e85dd4e34f94ff2afc0f3ae322ed91b9d6e8c9fb9614bbb1efd2c044e3f0b4865044e133aaba466f580b5ce7014ab8cb5358d17409a  uwumaker-version-1.4.3.zip
+83db5ee3bcb87973b98cfbb298c9e3ec49bd4ff682f671046c321db4adf6c13a2f32c0745312a4268888db5b2dd33ecad3d3665ec0f01b6ec4fb2dd47ebafae5  uwumaker-version-1.4.4.zip
 "

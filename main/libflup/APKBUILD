@@ -3,7 +3,7 @@
 pkgname=libflup
 # Keep in sync with repo on https://github.com/FoxieFlakey/Flup
 pkgver=1.8.1
-pkgrel=2
+pkgrel=3
 pkgdesc="A C library containing more stuffs"
 url="https://github.com/FoxieFlakey/Flup"
 arch="x86_64 aarch64"
